@@ -299,7 +299,7 @@ class Order extends CartAppModel {
 		$count = $this->find('count', array(
 				'contain' => array(),
 				'conditions' => array(
-						$this->alias . '.created ' => $date .'%')));
+						$this->alias . '.created LIKE ' => $date .'%')));
 		$increment = $count + 1;
 		return str_replace('-', '', $date) . '-'. $increment;
 	}
