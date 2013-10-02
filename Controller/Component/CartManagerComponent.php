@@ -268,6 +268,7 @@ class CartManagerComponent extends Component {
 
 		$item = $this->getItem($data['CartsItem']['foreign_key'], $data['CartsItem']['model']);
 		if ($type == 'increment') {
+			$data['CartsItem']['increment_quantity'] = $data['CartsItem']['quantity'];
 			$data['CartsItem']['quantity'] += $item['quantity'];
 			return $this->addItem($data, $recalculate);
 		} elseif ($type == 'decrement') {

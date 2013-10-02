@@ -73,8 +73,10 @@ class CartsController extends CartAppController {
 		}
 
 		$result = $this->CartManager->removeItem(array(
-			'foreign_key' => $this->request->named['id'],
-			'model' => $this->request->named['model']));
+			'CartsItem' => array(
+				'foreign_key' => $this->request->named['id'],
+				'model' => $this->request->named['model']
+			)));
 
 		if ($result) {
 			$this->Session->setFlash(__d('cart', 'Item removed'));
